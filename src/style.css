@@ -19,3 +19,12 @@ h1 {
     font-weight: 100;
     line-height: 28.px;
 }
+
+li {
+    list-style: none;
+    color: #878787;
+    display: block;
+    font-weight: 100;
+    font-size: 16px;
+    line-height: 19px;
+}
