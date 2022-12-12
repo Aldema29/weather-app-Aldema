@@ -39,3 +39,8 @@ li {
 .overview {
     margin-bottom: 20px;
 }
+.weather-temperature img {
+   margin-right: 10px; 
+   height: 64px;
+   width: 64px;
+}
