@@ -1,12 +1,63 @@
-function showUser(response) {
-    alert(`The user name is ${response.data.name}`);
+function displayTemperature(response) {
+    let temperatureElement = document.querySelector("#temperature");
+    let cityElement = document.querySelector("#city");
+    let descriptionElement = document.querySelector("#description");
+    let humidityElement = document.querySelector("#humidity");
+    let windElement = document.querySelector("#wind");
+    let dateElement = document.querySelector("#date");
+    let iconElement = document.querySelector("#icon");
+
+celsiusTemperature = response.data.main.temp;
+
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
+    cityElement.innerHTML = response.data.name;
+    descriptionElement.innerHTML = response.data.weather[0].description;
+    humidityElement.innerHTML = response.data.main.humidity;
+    windElement.innerHTML = Math.round(response.data.wind.speed);
+    dateElement.innerHTML = formatDate(response.data.dt * 1000);
+    iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
+    iconElement.setAttribute("alt",response.data.weather[0].description)
 }
 
+function search(city) {
+    let apiKey = "fb53e9f0cdf1fede8235fdb56573a63e";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+axios.get(apiUrl).then(displayTemperature);
+}
 
-let apiKey = "6210bfb6041b002d1b53875oa36td949";
-let url = "https://api.shecodes.io/weather/v1/current?query=Tel-aviv&key=6210bfb6041b002d1b53875oa36td949&units=metric"
+function handleSubmit(event){
+    event.preventDefault();
+    let cityInputElement = document.querySelector("#city-input");
+    search(cityInputElement.value);
+}
 
+function convertToFahrenheit(event) {
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#temperature");
+    celsiusLink.classList.remove("active");
+    fahrenheitLink.classList.add("active");
+    let fahrenheitTemperature = (celsiusTemperature * 9)/5 + 32;
+    temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+  }
+  
+  function convertToCelsius(event) {
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#temperature");
+    celsiusLink.classList.add("active");
+    fahrenheitLink.classList.remove("active");
+    
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  }
 
+  let celsiusTemperature = null;
 
-  let url = "https://jsonplaceholder.typicode.com/users/1";
-  axios.get(url).then(showUser);
+  let form= document.querySelector("#search-form");
+  form.addEventListener("submit",handleSubmit);
+  
+  let fahrenheitLink = document.querySelector("#fahrenheit-link");
+  fahrenheitLink.addEventListener("click", convertToFahrenheit);
+  
+  let celsiusLink = document.querySelector("#celsius-link");
+  celsiusLink.addEventListener("click", convertToCelsius);
+
+  search("Perth");
