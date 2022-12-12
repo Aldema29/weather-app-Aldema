@@ -46,5 +46,7 @@ li {
 }
 
 .weather-temperature strong{
-color: blue;
+color: rgb(33, 33, 33);
+font-size: 64px;
+font-weight: 400;
 }
