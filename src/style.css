@@ -44,3 +44,7 @@ li {
    height: 64px;
    width: 64px;
 }
+
+.weather-temperature strong{
+color: blue;
+}
