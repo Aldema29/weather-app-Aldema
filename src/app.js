@@ -2,8 +2,8 @@ function displayTemperature(response){
     console.log(response.data);
 }
 
-let apiKey = "4805d215b0d139399d8997a4c097e47c";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?g=Tel Aviv&appid=${apiKey}&units=metric`;
+let apiKey = "6210bfb6041b002d1b53875oa36td949";
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Tel Aviv&key=6210bfb6041b002d1b53875oa36td949&units=metric`;
 
 
 axios.get(apiUrl).then(displayTemperature);
