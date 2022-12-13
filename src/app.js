@@ -1,3 +1,9 @@
+function formatDate(timestamp) {
+//calculate the date
+return "Tuesday 18:30";
+}
+
+
 function displayTemperature(response) {
     let temperatureElement = document.querySelector("#temperature");
     let cityElement = document.querySelector("#city");
