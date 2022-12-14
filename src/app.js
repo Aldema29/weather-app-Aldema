@@ -83,5 +83,4 @@ FahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
-
-search("Tel aviv");
+search("Tel Aviv");
