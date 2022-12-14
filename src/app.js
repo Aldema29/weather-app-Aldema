@@ -53,6 +53,8 @@ function search(city) {
     axios.get(apiUrl).then(displayTemperature);
 }
 
+search("Tel Aviv");
+
    function handleSubmit(event) {
     event.preventDefault();
     let cityInputElement = document.querySelector("#city-input");
@@ -85,4 +87,3 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
-search("Tel Aviv");
