@@ -58,8 +58,16 @@ function search(city){
     search(cityInputElement.value);
 }
 
+
+function displayFahrenheitTemperature(event){
+    event.preventDefault();
+    alert("link clicked");
+}
+
 search("Tel aviv");
 
    let form = document.querySelector("search-from");
    form.addEventListener("submit", handleSubmit);
 
+let FahrenheitLink = document.querySelector("#Fahrenheit-link");
+FahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
