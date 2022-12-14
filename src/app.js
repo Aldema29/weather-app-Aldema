@@ -60,14 +60,26 @@ function search(city){
 function displayFahrenheitTemperature(event) {
     event.preventDefault();
     let temperatureElement = document.querySelector("#temperature");
-    let fahrenheitTemperature = (temperatureElement.innerHTML *9) /  5 + 32;
+    celsiusLink.classList.remove("active");
+    let fahrenheitTemperature = (celsiusTemperature*9) /  5 + 32;
     temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
-search("Tel aviv");
+function displayCelsiusTemperature(event) {
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#temeperature");
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
 
    let form = document.querySelector("search-from");
    form.addEventListener("submit", handleSubmit);
 
 let FahrenheitLink = document.querySelector("#Fahrenheit-link");
 FahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+search("Tel aviv");
