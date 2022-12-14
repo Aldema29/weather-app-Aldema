@@ -61,7 +61,8 @@ function search(city){
 
 function displayFahrenheitTemperature(event){
     event.preventDefault();
-    alert("link clicked");
+    let fahrenheitTemperature = (14 + 9) / 5 + 32;
+    alert(fahrenheitTemperature);
 }
 
 search("Tel aviv");
