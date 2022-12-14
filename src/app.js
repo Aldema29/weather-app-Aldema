@@ -58,11 +58,11 @@ function search(city){
     search(cityInputElement.value);
 }
 
-
-function displayFahrenheitTemperature(event){
+function displayFahrenheitTemperature(event) {
     event.preventDefault();
-    let fahrenheitTemperature = (14 + 9) / 5 + 32;
-    alert(fahrenheitTemperature);
+    let temperatureElement = document.querySelector("#temperature");
+    let fahrenheitTemperature = (temperatureElement.innerHTML *9) /  5 + 32;
+    temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
 search("Tel aviv");
