@@ -60,6 +60,8 @@ function search(city) {
     search(cityInputElement.value);
 }
 
+search("Tel Aviv");
+
 function displayFahrenheitTemperature(event) {
     event.preventDefault();
     let temperatureElement = document.querySelector("#temperature");
@@ -86,4 +88,3 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
-search("Tel Aviv");
