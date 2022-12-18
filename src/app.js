@@ -25,7 +25,7 @@ return `${day} ${hours}:${minutes}`;
 function displayForecast() {
     let forecastElement = document.querySelector("#forecast");
   
-    let days = ["Thu", "Fri", "Sat", "Sun" , "Mon" , "Tue" , "Wed"];
+    let days = ["Mon", "Tue", "Wed", "Thur" , "Fri" , "Sat" , "Sun"];
   
     let forecastHTML = `<div class="row">`;
     days.forEach(function (day) {
