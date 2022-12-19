@@ -69,10 +69,10 @@ function displayTemperature(response){
     let dateElement = document.querySelector("#date")
     let iconElement = document.querySelector("#icon")
 
-    imperialTemperature = response.data.temperature.current;
+    celsiusTemperature = response.data.temperature.current;
 
-    temperatureElement.innerHTML = Math.round(imperialTemperature);
-    cityElement.innerHTML = response.data.city;
+   temperatureElement.innerHTML = Math.round(CelsiusTemperature);
+   cityElement.innerHTML = response.data.city;
    descriptionElement.innerHTML = response.data.condition.description;
    humidityElement.innerHTML = response.data.temperature.humidity;
    speedElement.innerHTML = Math.round(response.data.wind.speed);
