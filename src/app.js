@@ -71,7 +71,7 @@ function displayTemperature(response){
 
     CelsiusTemperature = response.data.temperature.current;
 
-    temperatureElement.innerHTML = Math.round(celsiusTemperature);
+    temperatureElement.innerHTML = Math.round(imperialTemperature);
     cityElement.innerHTML = response.data.city;
    descriptionElement.innerHTML = response.data.condition.description;
    humidityElement.innerHTML = response.data.temperature.humidity;
@@ -87,10 +87,9 @@ function displayTemperature(response){
 function search(city){
 let apiKey ="f4a7c4a51b002t628840b9bo374f490d";
 let apiUrl = `
-https://api.shecodes.io/weather/v1/current?query=${city}&key=f4a7c4a51b002t628840b9bo374f490d&units=metric`;  
+https://api.shecodes.io/weather/v1/current?query=${city}&key=f4a7c4a51b002t628840b9bo374f490d&units=imperial`;  
 axios.get(apiUrl).then(displayTemperature)   
 }
-
 
 
 function handleSubmit(event){
