@@ -69,7 +69,7 @@ function displayTemperature(response){
     let dateElement = document.querySelector("#date")
     let iconElement = document.querySelector("#icon")
 
-    CelsiusTemperature = response.data.temperature.current;
+    imperialTemperature = response.data.temperature.current;
 
     temperatureElement.innerHTML = Math.round(imperialTemperature);
     cityElement.innerHTML = response.data.city;
