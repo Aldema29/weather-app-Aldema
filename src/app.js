@@ -55,7 +55,7 @@ let forecastElement = document.querySelector("#forecast");
         function getForecast(coordinates){
             console.log(coordinates);
             let apiKey = "f4a7c4a51b002t628840b9bo374f490d"
-            let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${coordinates.latitude}&lon=${coordinates.longitude}&key=${apiKey}&units=`
+            let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${coordinates.latitude}&lon=${coordinates.longitude}&key=${apiKey}&units=metric`
             axios.get(apiUrl).then(displayForecast);
         }
 
