@@ -54,8 +54,8 @@ let forecastElement = document.querySelector("#forecast");
 }
         function getForecast(coordinates){
             console.log(coordinates);
-            let apiKey = "6210bfb6041b002d1b53875oa36td949"
-            let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${coordinates.latitude}&lon=${coordinates.longitude}&key=${apiKey}&units=metric`
+            let apiKey = "f4a7c4a51b002t628840b9bo374f490d"
+            let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${coordinates.latitude}&lon=${coordinates.longitude}&key=${apiKey}&units=`
             axios.get(apiUrl).then(displayForecast);
         }
 
@@ -69,10 +69,10 @@ function displayTemperature(response){
     let dateElement = document.querySelector("#date")
     let iconElement = document.querySelector("#icon")
 
-    celsiusTemperature = response.data.temperature.current;
+    imperialTemperature = response.data.temperature.current;
 
-   temperatureElement.innerHTML = Math.round(CelsiusTemperature);
-   cityElement.innerHTML = response.data.city;
+    temperatureElement.innerHTML = Math.round(imperialTemperature);
+    cityElement.innerHTML = response.data.city;
    descriptionElement.innerHTML = response.data.condition.description;
    humidityElement.innerHTML = response.data.temperature.humidity;
    speedElement.innerHTML = Math.round(response.data.wind.speed);
@@ -85,9 +85,9 @@ function displayTemperature(response){
 }
 
 function search(city){
-let apiKey ="6210bfb6041b002d1b53875oa36td949";
+let apiKey ="f4a7c4a51b002t628840b9bo374f490d";
 let apiUrl = `
-https://api.shecodes.io/weather/v1/current?query=${city}&key=6210bfb6041b002d1b53875oa36td949&units=metric`;  
+https://api.shecodes.io/weather/v1/current?query=${city}&key=f4a7c4a51b002t628840b9bo374f490d&units=imperial`;  
 axios.get(apiUrl).then(displayTemperature)   
 }
 
