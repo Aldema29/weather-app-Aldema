@@ -35,7 +35,7 @@ let forecastElement = document.querySelector("#forecast");
         ` 
         <div class="col-2">
           <div class="weather-forecast-date">${formatDay(forecastDay.time * 1000)}</div>
-          <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecastDay.condition.icon}.png" 
+          <img src=http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecastDay.condition.icon}.png" 
           alt=""
           width="42"/>
           <div class="weather-forecast-temperatures">
@@ -55,7 +55,7 @@ let forecastElement = document.querySelector("#forecast");
         function getForecast(coordinates){
             console.log(coordinates);
             let apiKey = "f4a7c4a51b002t628840b9bo374f490d"
-            let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${coordinates.latitude}&lon=${coordinates.longitude}&key=${apiKey}&units=metric`
+            let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${coordinates.latitude}&lon=${coordinates.longitude}&key=${apiKey}&units=metric`;
             axios.get(apiUrl).then(displayForecast);
         }
 
@@ -69,10 +69,10 @@ function displayTemperature(response){
     let dateElement = document.querySelector("#date")
     let iconElement = document.querySelector("#icon")
 
-    CelsiusTemperature = response.data.temperature.current;
+    celsiusTemperature = response.data.temperature.current;
 
-    temperatureElement.innerHTML = Math.round(celsiusTemperature);
-    cityElement.innerHTML = response.data.city;
+   temperatureElement.innerHTML = Math.round(celsiusTemperature);
+   cityElement.innerHTML = response.data.city;
    descriptionElement.innerHTML = response.data.condition.description;
    humidityElement.innerHTML = response.data.temperature.humidity;
    speedElement.innerHTML = Math.round(response.data.wind.speed);
