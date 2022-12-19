@@ -35,7 +35,7 @@ let forecastElement = document.querySelector("#forecast");
         ` 
         <div class="col-2">
           <div class="weather-forecast-date">${formatDay(forecastDay.time * 1000)}</div>
-          <img src=http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecastDay.condition.icon}.png" 
+          <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecastDay.condition.icon}.png" 
           alt=""
           width="42"/>
           <div class="weather-forecast-temperatures">
@@ -55,7 +55,7 @@ let forecastElement = document.querySelector("#forecast");
         function getForecast(coordinates){
             console.log(coordinates);
             let apiKey = "f4a7c4a51b002t628840b9bo374f490d"
-            let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${coordinates.latitude}&lon=${coordinates.longitude}&key=${apiKey}&units=metric`;
+            let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${coordinates.latitude}&lon=${coordinates.longitude}&key=${apiKey}&units=metric`
             axios.get(apiUrl).then(displayForecast);
         }
 
@@ -69,10 +69,10 @@ function displayTemperature(response){
     let dateElement = document.querySelector("#date")
     let iconElement = document.querySelector("#icon")
 
-    celsiusTemperature = response.data.main.current;
+    CelsiusTemperature = response.data.temperature.current;
 
-   temperatureElement.innerHTML = Math.round(celsiusTemperature);
-   cityElement.innerHTML = response.data.city;
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
+    cityElement.innerHTML = response.data.city;
    descriptionElement.innerHTML = response.data.condition.description;
    humidityElement.innerHTML = response.data.temperature.humidity;
    speedElement.innerHTML = Math.round(response.data.wind.speed);
@@ -91,26 +91,7 @@ https://api.shecodes.io/weather/v1/current?query=${city}&key=f4a7c4a51b002t62884
 axios.get(apiUrl).then(displayTemperature)   
 }
 
-function displayFahrenheitTemperature(event) {
-    event.preventDefault();
-    let temperatureElement = document.querySelector("#temperature");
-  
-    celsiusLink.classList.remove("active");
-    fahrenheitLink.classList.add("active");
-    let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
-    temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
-  }
-  
-  function displayCelsiusTemperature(event) {
-    event.preventDefault();
-    celsiusLink.classList.add("active");
-    fahrenheitLink.classList.remove("active");
-    let temperatureElement = document.querySelector("#temperature");
-    temperatureElement.innerHTML = Math.round(celsiusTemperature);
-  }
-  
-  let celsiusTemperature = null;
-  
+
 
 function handleSubmit(event){
     event.preventDefault();
@@ -120,11 +101,5 @@ function handleSubmit(event){
  
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Tel-aviv");
